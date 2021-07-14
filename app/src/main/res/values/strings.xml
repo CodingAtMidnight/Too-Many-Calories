@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Too Many Calories</string>
+    <string name="too_many_calories">Too Many Calories</string>
+    <string name="clear">Clear</string>
+    <string name="add">Add</string>
+    <string name="input_food_or_meal">Input Food or Meal:</string>
 </resources>
