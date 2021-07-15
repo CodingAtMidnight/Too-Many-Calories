@@ -11,17 +11,19 @@ import com.example.toomanycalories.entities.Calories;
 
 @Database(entities = {Calories.class}, version = 1 , exportSchema = false)
 public abstract class CaloriesDatabase extends RoomDatabase {
-    private static CaloriesDatabase caloriesDatabase;
+    public abstract CaloriesDao caloriesDao();
 
-    public static synchronized CaloriesDatabase getCaloriesDatabase(Context context) {
-        if (caloriesDatabase == null) {
-            caloriesDatabase = Room.databaseBuilder(
-                    context,
+    private static CaloriesDatabase INSTANCE;
+
+    public static  CaloriesDatabase getCaloriesDatabase(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(
+                    context.getApplicationContext(),
                     CaloriesDatabase.class,
                     "food_db"
-            ).build();
+            ).allowMainThreadQueries().build();
         }
-        return caloriesDatabase;
+        return INSTANCE;
     }
-    public abstract CaloriesDao caloriesDao();
+
 }

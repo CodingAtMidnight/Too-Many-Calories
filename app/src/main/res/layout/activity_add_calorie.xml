@@ -63,7 +63,7 @@
         android:fontFamily="@font/fortnite"
         android:ems="10"
         android:inputType="number"
-        android:hint="Enter Calories Here"
+        android:hint="@string/enter_calories_here"
         android:textColorHint="#808080"
         android:textAlignment="center"
         android:textSize="30sp"
