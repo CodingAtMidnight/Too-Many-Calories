@@ -23,5 +23,6 @@ public interface CaloriesDao {
     @Delete
     void deleteFood(Calories calories);
 
-
+    @Query("DELETE FROM calories")
+    void deleteAll();
 }

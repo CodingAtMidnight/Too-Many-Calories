@@ -91,9 +91,8 @@ public class MainActivity extends AppCompatActivity {
     //TODO
     private void deleteAllCalories() {
         CaloriesDatabase db = CaloriesDatabase.getCaloriesDatabase(this.getApplicationContext());
-        List<Calories> caloriesList = db.caloriesDao().selectAllFoods();
-
-
+        db.caloriesDao().deleteAll();
+        recreate();
     }
 
     @Override
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 100) {
             loadCaloriesList();
             totalCalories.setText(getTotalCalories());
-
         }
 
         super.onActivityResult(requestCode, resultCode, data);
